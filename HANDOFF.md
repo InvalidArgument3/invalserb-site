@@ -13,10 +13,9 @@ Live on GitHub Pages. No build step, no framework, no CI.
 ## State as of 2026-11-23
 
 - Repo: `InvalidArgument3/invalserb-site`, default branch `main`.
-- Pages: enabled, source = `main` / root. Last build: success.
-- Pages custom domain: `www.invalserb.com` (from the CNAME file).
-- HTTPS certificate for the custom domain: **not provisioned** — GitHub only issues it after DNS resolves to Pages.
-- Public DNS: **not done**. `www.invalserb.com` still has Cloudflare-proxied records that answer nothing.
+- Pages: enabled, source = `main` / root. Custom domain `www.invalserb.com`, HTTPS enforced.
+- Cloudflare DNS (`invalserb.com`): `www` CNAME → `invalidargument3.github.io` (DNS-only / grey cloud), plus Redirect Rule `invalserb.com` → `https://www.invalserb.com` (301).
+- Page is intentionally minimal: hero, click-to-copy `mc.invalserb.com` server box, launchers (Prism Launcher, PrismLauncher-Cracked, CurseForge) + install steps, and direct `/releases/latest` links (no hardcoded pack version to bump).
 
 ## Remaining step: the DNS record
 
