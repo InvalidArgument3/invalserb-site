@@ -43,7 +43,7 @@ Pages rebuilds in under a minute; check `gh api repos/InvalidArgument3/invalserb
 
 ## Content rules
 
-- Facts on the page come from the pack repo and server: NeoForge 21.1.265, MC 1.21.1, 416 client / 335 server jars, 830 quests / 20 chapters, server `136.51.7.220:25565`, voice UDP 24454.
+- Facts on the page come from the pack repo and server: NeoForge 21.1.265, MC 1.21.1, 416 client / 335 server jars, 830 quests / 20 chapters, server `mc.invalserb.com`, voice UDP 24454.
 - Pack version appears in three places: hero button, `<span id="build">`, and the specs table. Bump all three on release, along with the download link (which points at `/releases/latest`, so only the version text changes).
 - Register: technical, no marketing adjectives. One fact per sentence.
 - Style is intentionally close to www.ramshacklegame.com: dark navy (`#040913` / `#0b1320`), blue accent `#4fb3ff`, Trebuchet MS, uppercase letter-spaced section labels. That site is Hugo (`sterikworks/ramshacklegamesite`, theme `hugo-landing-sections` from Codeberg); this one is deliberately plain HTML so there is nothing to build.
