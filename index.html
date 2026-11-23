@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autisnautics 1.21 — Minecraft 1.21.1 NeoForge pack + server</title>
+<meta name="description" content="Autisnautics 1.21 is a Minecraft 1.21.1 NeoForge modpack: Create-based tech progression, 830 quests, Cobblemon, voice chat. Public server 136.51.7.220:25565.">
+<meta property="og:title" content="Autisnautics 1.21">
+<meta property="og:description" content="Minecraft 1.21.1 · NeoForge 21.1.265 · 416 mods · 830 quests. Server: 136.51.7.220:25565">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.invalserb.com/">
+<link rel="icon" href="/assets/icon.png">
+<style>
+  :root {
+    --bg: #040913;
+    --bg2: #0b1320;
+    --line: #1d2c42;
+    --text: #dbe7f5;
+    --muted: #8fa5be;
+    --accent: #4fb3ff;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+
+  /* nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(4,9,19,.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.nav .wrap { display: flex; align-items: center; gap: 14px; height: 62px; }
+  header.nav img { width: 32px; height: 32px; image-rendering: pixelated; }
+  header.nav .brand { font-weight: bold; letter-spacing: .5px; }
+  header.nav nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+  header.nav nav a { color: var(--muted); }
+  header.nav nav a:hover { color: var(--accent); }
+
+  /* hero */
+  .hero {
+    padding: 74px 0 58px;
+    background:
+      radial-gradient(900px 420px at 18% -10%, rgba(79,179,255,.16), transparent 65%),
+      radial-gradient(700px 380px at 92% 0%, rgba(79,179,255,.07), transparent 60%),
+      linear-gradient(180deg, var(--bg2), var(--bg));
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: center; }
+  .hero h1 { font-size: 46px; line-height: 1.1; margin: 0 0 10px; letter-spacing: .5px; }
+  .hero .kicker { color: var(--accent); font-family: var(--mono); font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+  .hero p.lead { color: var(--muted); margin: 0 0 26px; max-width: 56ch; }
+  .hero .logo { width: 200px; height: 200px; image-rendering: pixelated; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(0,0,0,.55); }
+  .stats { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 0; }
+  .stat { border: 1px solid var(--line); background: rgba(11,19,32,.7); border-radius: 8px; padding: 8px 14px; font-family: var(--mono); font-size: 14px; color: var(--muted); }
+  .stat b { color: var(--text); font-weight: normal; }
+
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 13px 22px; border-radius: 8px; font-weight: bold; font-size: 16px;
+    border: 1px solid transparent; cursor: pointer; transition: transform .08s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: #04121f; }
+  .btn-primary:hover { background: #6cc0ff; text-decoration: none; }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* sections */
+  section { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  section h2 {
+    font-size: 15px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted);
+    margin: 0 0 30px; font-weight: normal;
+  }
+  section h2 span { color: var(--accent); }
+  h3 { margin: 0 0 8px; font-size: 19px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .card .tag { font-family: var(--mono); font-size: 12.5px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+
+  /* server box */
+  .serverbox {
+    display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+    background: linear-gradient(135deg, #0b1320, #08101c);
+    border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px;
+  }
+  .addr { font-family: var(--mono); font-size: 30px; color: #fff; letter-spacing: 1px; cursor: pointer; user-select: all; }
+  .addr small { display: block; font-size: 12.5px; color: var(--muted); letter-spacing: 1px; margin-top: 6px; }
+  .server-meta { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 18px; font-family: var(--mono); font-size: 13.5px; color: var(--muted); }
+  .server-meta b { color: var(--text); font-weight: normal; }
+
+  /* steps */
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  ol.steps li { counter-increment: s; position: relative; padding: 16px 18px 16px 60px; background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; color: var(--muted); }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 18px; top: 14px;
+    width: 28px; height: 28px; border-radius: 50%; background: rgba(79,179,255,.14); color: var(--accent);
+    display: grid; place-items: center; font-family: var(--mono); font-size: 14px; font-weight: bold;
+  }
+  ol.steps b { color: var(--text); }
+  code { font-family: var(--mono); font-size: 14px; background: rgba(79,179,255,.1); color: #bfe1ff; padding: 1px 6px; border-radius: 4px; }
+
+  /* table */
+  table { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: normal; font-family: var(--mono); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+  td:first-child { color: var(--muted); width: 34%; }
+  td code { background: none; padding: 0; }
+
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: 14.5px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+  .dot { color: var(--line); }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px);
+    background: var(--accent); color: #04121f; font-weight: bold; font-size: 14px;
+    padding: 10px 18px; border-radius: 8px; opacity: 0; pointer-events: none; transition: .18s ease;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 760px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero .logo { width: 128px; height: 128px; order: -1; }
+    .hero h1 { font-size: 34px; }
+    header.nav nav { display: none; }
+    .serverbox { grid-template-columns: 1fr; }
+    .addr { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <img src="/assets/icon.png" alt="">
+    <span class="brand">Autisnautics 1.21</span>
+    <nav>
+      <a href="#server">Server</a>
+      <a href="#pack">Pack</a>
+      <a href="#install">Install</a>
+      <a href="#specs">Specs</a>
+      <a href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Releases</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Minecraft 1.21.1 · NeoForge</div>
+      <h1>Autisnautics 1.21</h1>
+      <p class="lead">A Create-first tech pack with a linear quest line, Cobblemon, proximity voice chat and a working in-game AI chat bot. Public server, public releases, no account wall.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Download 0.1.63</a>
+        <a class="btn btn-ghost" href="#server">Server address</a>
+      </div>
+      <div class="stats">
+        <span class="stat"><b>416</b> client mods</span>
+        <span class="stat"><b>830</b> quests</span>
+        <span class="stat"><b>20</b> chapters</span>
+        <span class="stat"><b>20</b> player slots</span>
+      </div>
+    </div>
+    <img class="logo" src="/assets/icon.png" alt="Autisnautics pack icon">
+  </div>
+</div>
+
+<section id="server">
+  <div class="wrap">
+    <h2><span>01</span> / Server</h2>
+    <div class="serverbox">
+      <div>
+        <div class="addr" id="addr" title="Click to copy">136.51.7.220:25565<small>CLICK TO COPY · JAVA EDITION 1.21.1</small></div>
+        <div class="server-meta">
+          <span>voice <b>UDP 24454</b></span>
+          <span>difficulty <b>easy</b></span>
+          <span>build <b id="build">0.1.63</b></span>
+          <span>region <b>US</b></span>
+        </div>
+      </div>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Get the pack</a>
+      </div>
+    </div>
+    <div class="cards" style="margin-top:16px">
+      <div class="card"><span class="tag">Version lock</span><p>The server runs this pack only. A client on a different pack version is rejected at login — update through the launcher before connecting.</p></div>
+      <div class="card"><span class="tag">Voice chat</span><p>Simple Voice Chat is proximity-based and on by default. Allow UDP 24454 through your firewall or install the voice chat mod's own firewall test before joining.</p></div>
+      <div class="card"><span class="tag">Chat bot</span><p>Type <code>@bot &lt;question&gt;</code> in chat. The reply is broadcast to everyone online. Answers come from a language model; treat them as hints, not wikis.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pack">
+  <div class="wrap">
+    <h2><span>02</span> / What's in it</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Progression</span>
+        <h3>Create tech, gated by hand</h3>
+        <p>Kinetic mechanisms, harnesses and machines come before Refined Storage. Controllers, patterns, drives and grids are built from Create assemblies and a calculation mechanism, not the default recipes. No AE2 shortcut.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Questline</span>
+        <h3>830 quests, 20 chapters</h3>
+        <p>Linear chapters with dependency-checked graph, custom rewards scripted in KubeJS, translations for Spanish, French, Portuguese, Russian and Chinese.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Flight</span>
+        <h3>Create Aeronautics</h3>
+        <p>Contraption flight with linkage parts — andesite, brass and precision tiers — plus turbines that need a real kinetic supply.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Creatures</span>
+        <h3>Cobblemon, wild and hostile</h3>
+        <p>Wild Pokémon attack unprovoked above level 10, day and night. A 128-block safezone around spawn keeps the starting island clean.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Dimensions</span>
+        <h3>Undergarden, obsidian floor</h3>
+        <p>Bedrock floor and roof generate as obsidian, so bedrock farms are gone and the dreadrock layer sits above a minable floor.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Tools</span>
+        <h3>Harness mining tiers</h3>
+        <p>Iron, diamond and netherite harnesses follow their pickaxe equivalents. Diamond and netherite harnesses mine dreadrock and the rogdoric root.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2><span>03</span> / Install</h2>
+    <ol class="steps">
+      <li><b>Prism Launcher (recommended).</b> Download the <code>*-prism.zip</code> release asset and import it: <code>Add Instance</code> → <code>Import from zip</code>. Prism fetches every mod on import.</li>
+      <li><b>CurseForge app.</b> Use the <code>*-curseforge.zip</code> asset. Importing that zip into Prism also works and downloads the mods.</li>
+      <li><b>Any other launcher</b> — MultiMC, Modrinth App, or a manual folder: use <code>*-client.zip</code>. It ships the full <code>mods/</code> folder pre-filled.</li>
+      <li><b>Self-hosting.</b> Use <code>*-serverpack.zip</code>. It drops straight onto a NeoForge 21.1.265 server install; no client-only mods inside.</li>
+      <li><b>Updates are automatic.</b> Prism, MultiMC and the CurseForge app get an updater hook that compares <code>.autis/version.txt</code> against the latest GitHub release and applies the pack when the game closes. Manual: <code>java -jar autis/updater.jar --force</code>.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="wrap">
+    <h2><span>04</span> / Specs</h2>
+    <table>
+      <tr><td>Minecraft</td><td><code>1.21.1</code></td></tr>
+      <tr><td>Loader</td><td><code>NeoForge 21.1.265</code></td></tr>
+      <tr><td>Pack version</td><td><code>0.1.63</code> — <a href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases">all releases</a></td></tr>
+      <tr><td>Mod count</td><td><code>416</code> client / <code>335</code> server jars</td></tr>
+      <tr><td>Pack manager</td><td>Pakku (<code>pakku.json</code> + lock)</td></tr>
+      <tr><td>Server host</td><td>Self-hosted, US · 24 GB RAM / 24 cores</td></tr>
+      <tr><td>Client memory</td><td><code>6–8 GB</code> allocated in the launcher</td></tr>
+      <tr><td>Source</td><td><a href="https://github.com/InvalidArgument3/Autisnautics-1.21">github.com/InvalidArgument3/Autisnautics-1.21</a></td></tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Autisnautics 1.21</span>
+    <span class="dot">·</span>
+    <a href="https://github.com/InvalidArgument3/Autisnautics-1.21">GitHub</a>
+    <span class="dot">·</span>
+    <a href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Releases</a>
+    <span class="dot">·</span>
+    <a href="https://www.ramshacklegame.com/">Ramshackle</a>
+    <span class="dot">·</span>
+    <span>Separate pack, separate server. Not affiliated with Mojang.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Copied</div>
+<script>
+  const addr = document.getElementById('addr');
+  const toast = document.getElementById('toast');
+  addr.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('136.51.7.220:25565');
+    } catch {
+      const r = document.createRange();
+      r.selectNodeContents(addr.firstChild);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      document.execCommand('copy');
+    }
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1400);
+  });
+</script>
+</body>
+</html>
