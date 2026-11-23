@@ -72,6 +72,11 @@
   .btn-primary:hover { background: #6cc0ff; text-decoration: none; }
   .btn-ghost { background: transparent; border-color: var(--line); color: var(--text); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .btn-disabled {
+    background: #131d2d; border-color: var(--line); color: #5b6f86;
+    cursor: not-allowed; pointer-events: none; user-select: none;
+  }
+  .disabled-link { color: #5b6f86; cursor: not-allowed; text-decoration: line-through; }
 
   /* sections */
   section { padding: 56px 0; border-bottom: 1px solid var(--line); }
@@ -133,7 +138,6 @@
     <nav>
       <a href="#server">Server</a>
       <a href="#install">Install</a>
-      <a href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Releases</a>
       <a href="https://github.com/InvalidArgument3/Autisnautics-1.21">GitHub</a>
     </nav>
   </div>
@@ -142,11 +146,12 @@
 <div class="hero">
   <div class="wrap">
     <div>
-      <div class="kicker">Minecraft 1.21.1 · NeoForge</div>
+      <div class="kicker">Minecraft 1.21.1 · NeoForge · Public release Saturday, Dec 6</div>
       <h1>Autisnautics 1.21</h1>
-      <p class="lead">Public Minecraft 1.21.1 NeoForge modpack and server. Grab the latest release, import it into your launcher, and join.</p>
+      <p class="lead">Public Minecraft 1.21.1 NeoForge modpack and server. Public release opens Saturday, Dec 6.</p>
       <div class="btns">
-        <a class="btn btn-primary" href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Download latest</a>
+        <span class="btn btn-disabled" aria-disabled="true">Download (Dec 6)</span>
+        <a class="btn btn-ghost" href="https://github.com/InvalidArgument3/Autisnautics-1.21">GitHub</a>
         <a class="btn btn-ghost" href="#server">Server address</a>
       </div>
     </div>
@@ -167,7 +172,7 @@
         </div>
       </div>
       <div class="btns">
-        <a class="btn btn-primary" href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Latest release</a>
+        <span class="btn btn-disabled" aria-disabled="true">Release Dec 6</span>
       </div>
     </div>
   </div>
@@ -178,7 +183,7 @@
     <h2><span>02</span> / Launchers &amp; Install</h2>
     <ol class="steps">
       <li><b>Get a launcher.</b> Use <a href="https://prismlauncher.org/">Prism Launcher</a> or <a href="https://github.com/Diegiwg/PrismLauncher-Cracked/releases/latest">PrismLauncher-Cracked</a> 🏴‍☠️.</li>
-      <li><b>Download the pack</b> from the <a href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">latest GitHub release</a>.</li>
+      <li><b>Download the pack</b> from the <span class="disabled-link">latest GitHub release</span> once public release opens Saturday, Dec 6 (<a href="https://github.com/InvalidArgument3/Autisnautics-1.21">GitHub repo</a>).</li>
       <li><b>Import it.</b> In Prism / PrismLauncher-Cracked, import <code>*-prism.zip</code> via <code>Add Instance</code> → <code>Import from zip</code>. For other launchers or manual installs, use <code>*-client.zip</code>.</li>
       <li><b>Allocate 8–12 GB RAM</b> in your launcher settings, launch, and connect to <code>mc.invalserb.com</code>. Updates apply automatically when the game closes.</li>
     </ol>
@@ -191,7 +196,7 @@
     <span class="dot">·</span>
     <a href="https://github.com/InvalidArgument3/Autisnautics-1.21">GitHub</a>
     <span class="dot">·</span>
-    <a href="https://github.com/InvalidArgument3/Autisnautics-1.21/releases/latest">Latest release</a>
+    <span>Public release Saturday, Dec 6</span>
   </div>
 </footer>
 
