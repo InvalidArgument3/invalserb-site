@@ -100,6 +100,21 @@
   .server-meta { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 18px; font-family: var(--mono); font-size: 13.5px; color: var(--muted); }
   .server-meta b { color: var(--text); font-weight: normal; }
 
+  /* lists / pack overview */
+  .pack-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 18px; }
+  .panel { background: var(--bg2); border: 1px solid var(--line); padding: 22px 24px; }
+  .panel h3 {
+    margin: 0 0 14px; font-family: var(--mono); font-size: 13px;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); font-weight: normal;
+  }
+  ul.feat { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; color: var(--text); font-size: 15.5px; }
+  ul.feat li { padding-left: 16px; position: relative; }
+  ul.feat li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .mod-groups { display: grid; gap: 12px; font-size: 15px; color: var(--muted); }
+  .mod-groups b { color: var(--text); font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; }
+  .primer-note { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; }
+  .primer-note b { color: var(--text); }
+
   /* steps */
   ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
   ol.steps li { counter-increment: s; position: relative; padding: 16px 18px 16px 60px; background: var(--bg2); border: 1px solid var(--line); color: var(--muted); }
@@ -128,6 +143,7 @@
     .hero h1 { font-size: 34px; }
     header.nav nav { display: none; }
     .serverbox { grid-template-columns: 1fr; }
+    .pack-grid { grid-template-columns: 1fr; }
     .addr { font-size: 24px; }
   }
 </style>
@@ -140,6 +156,7 @@
     <span class="brand">Autisnautics 1.21</span>
     <nav>
       <a href="#server">Server</a>
+      <a href="#pack">Pack</a>
       <a href="#install">Install</a>
       <a href="https://github.com/InvalidArgument3/Autisnautics-1.21">GitHub</a>
     </nav>
@@ -181,15 +198,41 @@
   </div>
 </section>
 
+<section id="pack">
+  <div class="wrap">
+    <h2><span>02</span> / Features &amp; Main Mods</h2>
+    <div class="pack-grid">
+      <div class="panel">
+        <h3>Main features</h3>
+        <ul class="feat">
+          <li>Floating-islands worldgen</li>
+          <li>Custom Origins &amp; origin questlines</li>
+          <li>FTB Quests progression &amp; Mod Primers</li>
+          <li>Proximity voice chat</li>
+          <li>Built-in auto-updater</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Main mods</h3>
+        <div class="mod-groups">
+          <div><b>Tech</b> Create, Create Aeronautics, Create Crafts &amp; Additions, Create Diesel Generators, Create Enchantment Industry, Applied Energistics 2, Immersive Engineering, Immersive Petroleum, Modern Foundry, NuclearCraft, ComputerCraft, Let It Walk</div>
+          <div><b>Magic</b> Ars Nouveau, Iron's Spells 'n Spellbooks, Astral Sorcery, Psi, Thaumaturge, Theurgy</div>
+          <div><b>World &amp; Survival</b> Cobblemon, Alex's Caves, Alex's Mobs, Cataclysm, The Undergarden, Farmer's Delight, Tide, Sophisticated Storage &amp; Backpacks</div>
+        </div>
+        <p class="primer-note">New to a mod? Open the in-game questbook and check the <b>Mod Primers</b> section for a quick guide on each one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="install">
   <div class="wrap">
-    <h2><span>02</span> / Launchers &amp; Install</h2>
+    <h2><span>03</span> / Launchers &amp; Install</h2>
     <ol class="steps">
       <li><b>Get a launcher.</b> Use <a href="https://prismlauncher.org/">Prism Launcher</a> or <a href="https://github.com/Diegiwg/PrismLauncher-Cracked/releases/latest">PrismLauncher-Cracked</a> 🏴‍☠️.</li>
       <li><b>Download the pack</b> from the <span class="disabled-link">latest GitHub release</span> once release opens Saturday, Dec 6 (<a href="https://github.com/InvalidArgument3/Autisnautics-1.21">GitHub repo</a>).</li>
       <li><b>Import it.</b> In Prism / PrismLauncher-Cracked, import <code>*-prism.zip</code> via <code>Add Instance</code> → <code>Import from zip</code>. For other launchers or manual installs, use <code>*-client.zip</code>.</li>
-      <li><b>Allocate 8–12 GB RAM</b> in your launcher settings, launch, and connect to <code>mc.invalserb.com</code>.</li>
-      <li><b>Auto-updater included.</b> Prism / PrismLauncher-Cracked instances ship with a built-in auto-updater that checks for new releases and applies pack updates automatically when the game closes. Manual update: <code>java -jar autis/updater.jar --force</code>.</li>
+      <li><b>Allocate 8–12 GB RAM</b> in your launcher settings, launch, and connect to <code>mc.invalserb.com</code>. Includes a built-in auto-updater.</li>
     </ol>
   </div>
 </section>
